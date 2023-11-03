@@ -1,0 +1,133 @@
+<--- Create Virtual Environment and Install Python Module --->
+1. Python Module {
+    i. Flask
+    ii. mysql.connector
+    Install both module using pip command.
+}
+
+2. Mysql Database:
+Database Name : virtual
+Table Name : chat_data, chat_options, chat_url_links
+<--- CREATE TABLE --->
+CREATE TABLE chat_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    chat_key VARCHAR(255) UNIQUE,
+    title TEXT,
+    url_more VARCHAR(255),
+    url_links TEXT
+);
+
+CREATE TABLE chat_options (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    chat_data_id INT,
+    option_text TEXT,
+    FOREIGN KEY (chat_data_id) REFERENCES chat_data(id)
+);
+
+CREATE TABLE chat_url_links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    chat_data_id INT,
+    link_text VARCHAR(255),
+    FOREIGN KEY (chat_data_id) REFERENCES chat_data(id)
+);
+<--- Insert Data Into chat_data Table --->
+INSERT INTO chat_data (chat_key, title, url_more, url_links)
+VALUES
+    ('chatinit', 'Hello &#128075; ... How can I help you?', NULL, NULL),
+    ('admission', 'Please select category', NULL, NULL),
+    ('news', 'Today\'s Top 5 Headlines', '#', '#,#,#,#'),
+    ('examinations', 'Thanks for your response...', NULL, NULL),
+    ('branch', 'Thanks for your response... Exam schedule by branch', '#', '#,#,#,#,#'),
+    ('schedule', 'Thanks for your response... Exam schedule by course', '#', '#,#,#,#'),
+    ('centre', 'Thanks for your response... Results based on input', '#', '#,#,#,#'),
+    ('result', 'Thanks for your response...', '#', '#,#'),
+    ('btech', 'Thanks for your response... Branches available', '#', '#,#,#,#,#'),
+    ('mtech', 'Thanks for your response... Branches available', '#', '#,#,#,#,#'),
+    ('diploma', 'Thanks for your response... Branches available', '#', '#,#'),
+    ('mba', 'Here are some more options for you', '#', '#,#');
+
+<--- Insert Data Into chat_options Table --->
+INSERT INTO chat_options (chat_data_id, option_text)
+VALUES
+    (1, 'Admission'),
+    (1, 'News'),
+    (1, 'Examinations'),
+    (1, 'Result'),
+    (2, 'Btech'),
+    (2, 'Mtech'),
+    (2, 'Diploma'),
+    (2, 'MBA');
+    (3, 'The rare green comet will make its closest pass of Earth between February 1 and February 2, according to NASA.'),
+    (3, 'The rare green comet will make its closest pass of Earth between February 1 and February 2, according to NASA.'),
+    (3, 'The rare green comet will make its closest pass of Earth between February 1 and February 2, according to NASA.'),
+    (4, 'Branch Code'),
+    (4, 'Schedule'),
+    (4, 'Centre'),
+    (5, 'Computer Science & Engineering'),
+    (5, 'Mechanical Engineering'),
+    (5, 'Electrical Engineering'),
+    (5, 'Civil Engineering'),
+    (5, 'Electronics Engineering'),
+    (6, 'B.Tech'),
+    (6, 'M.Tech'),
+    (6, 'Diploma'),
+    (6, 'MBA'),
+    (7, 'B.Tech'),
+    (7, 'M.Tech'),
+    (7, 'Diploma'),
+    (7, 'MBA');
+    (8, 'One View'),
+    (8, 'More Details'),
+    (9, 'Computer Science & Engineering'),
+    (9, 'Mechanical Engineering'),
+    (9, 'Electrical Engineering'),
+    (9, 'Civil Engineering'),
+    (9, 'Electronics Engineering'),
+    (10, 'Computer Science & Engineering'),
+    (10, 'Mechanical Engineering'),
+    (10, 'Electrical Engineering'),
+    (10, 'Civil Engineering'),
+    (10, 'Electronics Engineering'),
+    (11, 'Computer Science & Engineering'),
+    (11, 'Mechanical Engineering'),
+    (12, 'Digital Marketing'),
+    (12, 'Businessman');
+
+<--- Insert Data Into chat_url_links --->
+INSERT INTO chat_url_links (chat_data_id, link_text)
+VALUES
+    (3, '#'),
+    (3, '#'),
+    (3, '#'),
+    (3, '#'),
+    (5, '#'),
+    (5, '#'),
+    (5, '#'),
+    (5, '#'),
+    (5, '#'),
+    (6, '#'),
+    (6, '#'),
+    (6, '#'),
+    (6, '#'),
+    (7, '#'),
+    (7, '#'),
+    (7, '#'),
+    (7, '#'),
+    (8, '#'),
+    (8, '#'),
+    (9, '#'),
+    (9, '#'),
+    (9, '#'),
+    (9, '#'),
+    (9, '#'),
+    (10, '#'),
+    (10, '#'),
+    (10, '#'),
+    (10, '#'),
+    (10, '#'),
+    (11, '#'),
+    (11, '#'),
+    (12, '#'),
+    (12, '#');
+
+

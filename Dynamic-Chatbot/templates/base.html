@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Chatbot</title>
+
+    <!-- font awesome icon cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="desc">
+            <!-- <button id="init">START CHAT</button> -->
+            <button id="init" aria-label="Start Chat">START CHAT</button>
+        </div>
+    </div>
+    <div id="test" style="position: fixed;top: 4rem;right: 8rem;display: none;">
+        <div class="child" id="chatbot">
+            <div class="header">
+                <div class="h-child">
+                    <img src="{{ url_for('static', filename='images/chatbot (1).png') }}" alt="avatar" id="avatar" />
+                    <div>
+                        <span class="name">Chatbot</span>
+                        <br>
+                        <span style="color:lawngreen">online</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="refBtn"><i class="fa fa-refresh" onclick="initChat()"></i></button>
+                </div>
+            </div>
+
+            <div id="chat-box">
+
+            </div>
+            <div class="footer">
+                <span>powered by @Naresh</span>
+            </div>
+
+        </div>
+        
+    </div>
+    <button id="test-fetch" onclick="testFetch()">Test Fetch</button>
+
+    
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+</body>
+</html>
